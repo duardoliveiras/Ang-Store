@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  cols = 3;
 
+  columnsUpdate(colsNum : number): void {
+    this.cols = colsNum;
+  }
 }

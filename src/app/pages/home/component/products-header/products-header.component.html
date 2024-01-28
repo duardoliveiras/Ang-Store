@@ -23,15 +23,16 @@
                     <button mat-menu-item (click)="itemsUpdate(24)"> 24 </button>
                 </mat-menu>
             </div>
-            <button>
-                <mat-icon>view_list</mat-icon>
+            <button> 
+                <mat-icon (click)="columnsUpdate(1)"> view_list </mat-icon>
             </button>
-            <button>
-                <mat-icon>view_module</mat-icon>
+            <button> 
+                <mat-icon (click)="columnsUpdate(2)"> view_modules </mat-icon>
             </button>
-            <button>
-                <mat-icon>view_comfy</mat-icon>
+            <button> 
+                <mat-icon (click)="columnsUpdate(3)"> view_comfy </mat-icon>
             </button>
+
         </div>
     </div>
 </mat-card>
