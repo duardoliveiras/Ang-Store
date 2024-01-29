@@ -14,22 +14,9 @@
             [rowHeight]="rowHeight"
             >
                 <mat-grid-tile>
-                    <app-products-box class="w-full" [fullWidthMode]="cols===1"></app-products-box>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <app-products-box  class="w-full" [fullWidthMode]="cols===1"></app-products-box>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <app-products-box  class="w-full" [fullWidthMode]="cols===1"></app-products-box>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <app-products-box  class="w-full" [fullWidthMode]="cols===1"></app-products-box>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <app-products-box  class="w-full" [fullWidthMode]="cols===1"></app-products-box>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <app-products-box  class="w-full" [fullWidthMode]="cols===1"></app-products-box>
+                    <app-products-box
+                        (addToCart)="onAddToCart($event)" 
+                    class="w-full" [fullWidthMode]="cols===1"></app-products-box>
                 </mat-grid-tile>
              
         </mat-grid-list>
