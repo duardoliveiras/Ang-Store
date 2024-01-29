@@ -19,6 +19,7 @@ export class ProductsBoxComponent {
   @Output() addToCart = new EventEmitter();
 
   onAddToCart(): void{
+    console.log("oi");
     this.addToCart.emit(this.product);
   }
 }
