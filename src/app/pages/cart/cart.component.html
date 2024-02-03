@@ -12,7 +12,9 @@
                 <button mat-raised-button routerLink="/home" class="mr-2"> Continue Shopping
                     <mat-icon> shopping_cart </mat-icon>
                 </button>
-                <button mat-raised-button color="warn" class="float-right">
+                <button 
+                    (click)="clearCart()"
+                    mat-raised-button color="warn" class="float-right">
                     <mat-icon> delete </mat-icon>
                     Clear all
                 </button>
@@ -51,7 +53,8 @@
             <th mat-header-cell *matHeaderCellDef>Quantity</th>
             <td mat-cell *matCellDef="let element">
                 <div class="d-flex align-items-center">
-                    <button mat-icon-button class="mr-2" style="vertical-align: middle;">
+                    <button 
+                        mat-icon-button class="mr-2" style="vertical-align: middle;">
                         <mat-icon>remove</mat-icon>
                     </button>
                     <span style="vertical-align: middle;">{{element.qty}}</span>
@@ -79,7 +82,10 @@
         <ng-conteiner matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element">
-                <button color="warn" class="float-right">
+                <!-- Button to remove item -->
+                <button 
+                    (click)="removeItem(element)"
+                    color="warn" class="float-right">
                     <mat-icon color="warn"> close </mat-icon>
                 </button>
             </td>

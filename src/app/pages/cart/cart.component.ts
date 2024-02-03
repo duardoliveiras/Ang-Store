@@ -39,6 +39,10 @@ export class CartComponent implements OnInit{
 
   ngOnInit(): void {
     this.dataSrc = this.cart.items;
+    this.cartService.cart.subscribe((_cart) => {
+      this.cart = _cart;
+      this.dataSrc = _cart.items;
+    });
   }
 
   displayedColumns: Array<string> = [
@@ -56,8 +60,11 @@ export class CartComponent implements OnInit{
   getTotal(items : Array<CartItem>): number{
     return this.cartService.getTotal(items);
   }
-  clearCart(){
+  clearCart() : void {
     this.cartService.clearCart();
+  }
+  removeItem(item : CartItem) : void {
+    this.cartService.removeItem(item);
   }
 
 }
