@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Cart } from '../../models/cart.model';
+import { Cart, CartItem } from '../../models/cart.model';
 import { preserveWhitespacesDefault } from '@angular/compiler';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,10 @@ export class HeaderComponent {
   get cart(): Cart{
     return this._cart;
   }
+  // The .map method is used to extract the qty propert
+  // from each item in the cart and return a new array of just the qty values.
+
+  // The .reduce method is used to sum all the qty values in the array
   set cart(cart:Cart){
     this._cart = cart;
     this.itemsQty = cart.items
@@ -23,6 +28,15 @@ export class HeaderComponent {
       .reduce((prev, current) => prev + current, 0);
   }
 
+  constructor(private cartService: CartService) { }
+  
+  getTotal(items : Array<CartItem>): number{
+    return this.cartService.getTotal(items);
+  }
+
+  clearCart(){
+    this.cartService.clearCart();
+  }
 
 
 }
