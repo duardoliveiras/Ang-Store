@@ -1,4 +1,4 @@
-package com.angstore;
+package com.angstore.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

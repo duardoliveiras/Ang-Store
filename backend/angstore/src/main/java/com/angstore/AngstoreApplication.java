@@ -11,6 +11,10 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
+import com.angstore.Model.Address;
+import com.angstore.Model.Client;
+import com.angstore.Repository.ClientRepository;
+
 
 @SpringBootApplication
 public class AngstoreApplication {

@@ -1,8 +1,8 @@
-package com.angstore;
+package com.angstore.Controller;
 
 
 public class ClientController{
 
-    
+
 
 }

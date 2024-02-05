@@ -1,9 +1,11 @@
-package com.angstore;
+package com.angstore.Repository;
 
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 // import org.springframework.data.mongodb.repository.Query;
+
+import com.angstore.Model.Client;
 
 
 
