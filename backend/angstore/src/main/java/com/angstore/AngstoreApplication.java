@@ -8,6 +8,8 @@ public class AngstoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AngstoreApplication.class, args);
+
+		
 	}
 
 }
