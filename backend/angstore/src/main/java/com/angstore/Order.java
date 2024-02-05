@@ -1,6 +1,6 @@
 package com.angstore;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.Data;
@@ -10,6 +10,6 @@ public class Order {
     private Client client;
     private List<OrderItem> items;
     private double total;
-    private ZonedDateTime date;
+    private LocalDateTime date;
     
 }

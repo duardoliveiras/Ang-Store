@@ -1,15 +1,16 @@
 package com.angstore;
 
+import org.springframework.data.annotation.Id;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 // The EqualsAndHashCode annotation is disabled for the OrderItem class.
-// This means that the equals and hashCode methods are not generated for this class.
-// This is because the OrderItem class extends the Product class, and the equals and hashCode methods are already generated for the Product class.
 
 @Data
-@EqualsAndHashCode(callSuper=false)
-public class OrderItem extends Product{
+public class OrderItem{
+    @Id
+    private String id;
+    private Product item;
     private int quantity;
     private double price;
 }
