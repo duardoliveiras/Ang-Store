@@ -1,5 +1,11 @@
 <mat-toolbar class="max-w-7x1 mx-auto border-x justify-between">
     <a routerLink="home"> Ang Store</a>
+    <button 
+        routerLink="create"
+        mat-icon-button> 
+        <mat-icon>create</mat-icon>
+    </button>
+
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon
         [matBadge] = "itemsQty"

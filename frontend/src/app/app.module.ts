@@ -26,6 +26,7 @@ import { FiltersComponent } from './pages/home/component/filters/filters.compone
 import { ProductsBoxComponent } from './pages/home/component/products-box/products-box.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CartService } from './services/cart.service';
+import { CreateComponent } from './pages/create/create.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CartService } from './services/cart.service';
     ProductsHeaderComponent,
     FiltersComponent,
     ProductsBoxComponent,
-    CartComponent
+    CartComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
