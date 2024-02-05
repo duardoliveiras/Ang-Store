@@ -50,8 +50,10 @@ export class CartService {
     item.qty -= 1;
     if(item.qty === 0){
       this.removeItem(item);
+    }else{
+      this._snackBar.open('1 Item Removed', 'Ok', {duration: 4000} );
     }
-    this._snackBar.open('1 Item Removed', 'Ok', {duration: 4000} );
+    
   }
 
 }
