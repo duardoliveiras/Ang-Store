@@ -66,5 +66,11 @@ export class CartComponent implements OnInit{
   removeItem(item : CartItem) : void {
     this.cartService.removeItem(item);
   }
+  subQuantity(item : CartItem) : void {
+    this.cartService.subQuantity(item);
+  }
+  addQuantity(item : CartItem) : void { 
+    this.cartService.addToCart(item);
+  }
 
 }

@@ -54,11 +54,15 @@
             <td mat-cell *matCellDef="let element">
                 <div class="d-flex align-items-center">
                     <button 
+                        (click)="subQuantity(element)"
                         mat-icon-button class="mr-2" style="vertical-align: middle;">
                         <mat-icon>remove</mat-icon>
                     </button>
+
                     <span style="vertical-align: middle;">{{element.qty}}</span>
-                    <button mat-icon-button class="ml-2" style="vertical-align: middle;">
+                    <button 
+                        (click)="addQuantity(element)"
+                        mat-icon-button class="ml-2" style="vertical-align: middle;">
                         <mat-icon>add</mat-icon>
                     </button>
                 </div>                
