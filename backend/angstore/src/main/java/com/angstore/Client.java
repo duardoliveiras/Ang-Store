@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
@@ -15,6 +16,7 @@ public class Client {
     private String id;
     private String name;
     private Address address;
+    @Indexed(unique = true) // Is used to indicate that this field should be indexed in the database.
     private String email;
     private List<Product> cart;
     private BigDecimal totalSpent;

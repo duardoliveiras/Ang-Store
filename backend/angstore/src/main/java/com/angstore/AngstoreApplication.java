@@ -14,6 +14,7 @@ public class AngstoreApplication {
 
 	@Bean // This annotation tells Spring Boot that this method should be used to configure the application context.
 	CommandLineRunner runenr(ClientRepository repository){
+		repository.deleteAll();
 		return args ->{
 			Address address = new Address(
 				"USA", 

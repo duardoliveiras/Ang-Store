@@ -10,7 +10,7 @@ import lombok.Data;
 public class OrderItem{
     @Id
     private String id;
-    private Product item;
+    private String productId;
     private int quantity;
     private double price;
 }
