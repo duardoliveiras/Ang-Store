@@ -1,4 +1,4 @@
-package com.angstore;
+package com.angstore.Model;
 
 import java.time.LocalDateTime;
 import java.util.List;

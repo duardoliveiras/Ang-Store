@@ -1,4 +1,4 @@
-package com.angstore;
+package com.angstore.Model;
 
 import org.springframework.data.annotation.Id;
 

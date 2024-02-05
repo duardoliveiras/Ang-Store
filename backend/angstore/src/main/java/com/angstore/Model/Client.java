@@ -1,4 +1,4 @@
-package com.angstore;
+package com.angstore.Model;
 
 import java.math.BigDecimal;
 import java.util.List;
