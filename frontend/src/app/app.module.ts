@@ -27,6 +27,7 @@ import { ProductsBoxComponent } from './pages/home/component/products-box/produc
 import { CartComponent } from './pages/cart/cart.component';
 import { CartService } from './services/cart.service';
 import { CreateComponent } from './pages/create/create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { CreateComponent } from './pages/create/create.component';
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [CartService],
   bootstrap: [AppComponent]
