@@ -27,7 +27,7 @@ export class ImgbbService {
     formData.append('image', file);
     
     return this.httpClient
-      .post<ImgbbResponse>('https://', formData, { params: { key: this.apiKey }})
+      .post<ImgbbResponse>('https://api.imgbb.com/1/upload', formData, { params: { key: this.apiKey }})
       .pipe(map((response) => response.data.url));
 
   }

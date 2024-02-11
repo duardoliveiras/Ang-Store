@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ImgbbService } from '../../services/imgbb.service';
+import { UrlSegment } from '@angular/router';
 
 
 @Component({
@@ -11,13 +12,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private readonly imgbbService : ImgbbService){
     this.form = this.fb.group({
-      nome: [null, [Validators.required]],
+      name: ['', [Validators.required]],
+      file: ['', [Validators.required]]
     });
   }
+  up: File | null = null;
+  inputChange(e : Event){
+    const input = e.target as HTMLInputElement;
+    if(input.files?.length){
+      const file = input.files[0];
+      console.log(file);
+      this.up = file;
+    }
 
+  }
   submit(){
-    console.log(this.form.value);
+    const formData = this.form.value;
+    console.log(formData);
+    if(this.up){
+      this.imgbbService.upload(this.up).subscribe((url) => console.log(url));
+    }
   }
 }

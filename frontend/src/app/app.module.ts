@@ -29,6 +29,7 @@ import { CartService } from './services/cart.service';
 import { CreateComponent } from './pages/create/create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http'; // To use the HttpClient service, we need to import the HttpClientModule module
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [CartService],
   bootstrap: [AppComponent]

@@ -8,6 +8,14 @@
                 focus:outline-none focus:shadow-outline"/>
             <small *ngIf="form.get('name')?.errors"> Required field </small>
         </div>
+        <div class="mb-5">
+            <label for="file" class="block mb-2 test-sm text-gray-600"> File: </label>
+            <input formControlName="file" placeholder="File..." type="file"
+                class="w-full px-3 py-2 text-gray-700 border rounded-lg
+                focus:outline-none focus:shadow-outline"
+                (change)="inputChange($event)"/>
+            <small *ngIf="form.get('file')?.errors"> Required field </small>
+        </div>
         <button type="submit" class="w-full py-3 mt-10 bg-indigo-600 text-white 
             rounded shadow hover:bg-indigo-500"> Send </button>
     </div>
