@@ -8,6 +8,7 @@ import com.angstore.Model.Product;
 import lombok.AllArgsConstructor;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -31,8 +32,8 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    public List<Product> getAllProducts(){
-        return productService.getAllProducts();
+    public List<Product> getAllProducts(@RequestParam String sort, @RequestParam int limit){
+        return productService.getAllProducts(sort, limit);
     }
 
     @PostMapping("/add")

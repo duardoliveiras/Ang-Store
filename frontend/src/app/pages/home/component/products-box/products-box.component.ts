@@ -8,6 +8,7 @@ import { Product } from '../../../../models/product-box';
 })
 export class ProductsBoxComponent {
   @Input() fullWidthMode = false;
+  
   product : Product | undefined = {
     id: 2,
     title: 'Jeans',
@@ -16,6 +17,7 @@ export class ProductsBoxComponent {
     description: 'Description',
     url: 'https://via.placeholder.com/150'
   }
+  
   @Output() addToCart = new EventEmitter();
 
   onAddToCart(): void{
