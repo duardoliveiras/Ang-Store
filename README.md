@@ -25,6 +25,7 @@ This is a small store website that I developed as part of my study in Angular, J
 2. Go to `/frontend` with `cd frontend` 
 3. Start the angular serve `ng serve` 
 4. The server will be started in `localhost:4200`
+5. Go to `/backend/angstore` and run `docker-compose up -d` to start mongoDB
 
 Make sure to configure the database connection correctly in the configuration file.
 

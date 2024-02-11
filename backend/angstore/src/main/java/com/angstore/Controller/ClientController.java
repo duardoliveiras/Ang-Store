@@ -18,7 +18,7 @@ public class ClientController{
 
     private final ClientService clientService;
 
-    @GetMapping()
+    @GetMapping("")
     public String getClient(){
         return "Hello";
     }
