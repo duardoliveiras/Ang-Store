@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ImgbbService } from '../../services/imgbb.service';
-import { UrlSegment } from '@angular/router';
+import { CategoriesService } from '../../services/categories.service';
+
 
 
 @Component({
@@ -9,14 +10,19 @@ import { UrlSegment } from '@angular/router';
   templateUrl: './create.component.html',
   styleUrl: './create.component.css'
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit {
   form: FormGroup;
+  categories: string[] = []; // This is an array of strings
 
-  constructor(private fb: FormBuilder, private readonly imgbbService : ImgbbService){
+  constructor(private fb: FormBuilder, private readonly imgbbService : ImgbbService, private categoriesService: CategoriesService ){
     this.form = this.fb.group({
       name: ['', [Validators.required]],
+      category: ['', [Validators.required]],
       file: ['', [Validators.required]]
     });
+  }
+  ngOnInit(): void {
+    this.categories = this.categoriesService.getCateogories();
   }
   up: File | null = null;
   inputChange(e : Event){
