@@ -20,7 +20,8 @@ export class CreateComponent implements OnInit {
       category: ['', [Validators.required]],
       description: ['', [Validators.required]],
       price: ['', [Validators.required]],
-      file: ['', [Validators.required]]
+      file: ['', [Validators.required]],
+      url: [''],
     });
   }
   ngOnInit(): void {
@@ -36,11 +37,11 @@ export class CreateComponent implements OnInit {
     }
 
   }
-  submit(){
-    const formData = this.form.value;
-    console.log(formData);
+  async submit(){
     if(this.up){
-      this.imgbbService.upload(this.up).subscribe((url) => console.log(url));
+      const imgUrl = await this.imgbbService.upload(this.up);
+      this.form.get('url')?.setValue(imgUrl);
     }
+    console.log(this.form.value);
   }
 }

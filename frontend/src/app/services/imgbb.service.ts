@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient, HttpParams } from '@angular/common/http'; 
 import { map } from 'rxjs/operators';
+import {  firstValueFrom } from 'rxjs';
 
 interface ImgbbResponse {
   data: {
@@ -21,14 +22,26 @@ export class ImgbbService {
   constructor(private readonly httpClient: HttpClient) { }
 
   // Observable is a design pattern that allows us to work with asynchronous data streams
-  upload(file: File): Observable<string>{
+  async upload(file: File){
     const formData = new FormData();
-
     formData.append('image', file);
-    
-    return this.httpClient
-      .post<ImgbbResponse>('https://api.imgbb.com/1/upload', formData, { params: { key: this.apiKey }})
-      .pipe(map((response) => response.data.url));
+
+    const params = new HttpParams().set('key', this.apiKey);
+
+    try{
+      const response: any = await firstValueFrom(this.httpClient.post<any>('https://api.imgbb.com/1/upload', formData, { params }));
+
+     if (response && response.data && response.data.url) {
+        return response.data.url;
+     } else {
+        throw new Error('URL not found');
+      }
+    } catch (error) {
+      console.error('Erro to send image', error);
+      throw error;
+    }
+      
+    }
 
   }
-}
+
