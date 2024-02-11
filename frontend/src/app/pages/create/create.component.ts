@@ -18,6 +18,8 @@ export class CreateComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       category: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      price: ['', [Validators.required]],
       file: ['', [Validators.required]]
     });
   }
