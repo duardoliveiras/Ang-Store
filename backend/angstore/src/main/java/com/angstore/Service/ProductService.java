@@ -1,5 +1,7 @@
 package com.angstore.Service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.angstore.Repository.ProductRepository;
@@ -16,5 +18,8 @@ public class ProductService {
 
     public void addProduct(Product product){
         productRepository.save(product);
+    }
+    public List<Product> getAllProducts(){
+        return productRepository.findAll();
     }
 }

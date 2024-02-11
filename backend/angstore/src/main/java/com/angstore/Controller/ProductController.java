@@ -8,7 +8,9 @@ import com.angstore.Model.Product;
 import lombok.AllArgsConstructor;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +28,11 @@ public class ProductController {
     @GetMapping("/")
     public String getProduct(){
         return "Hello";
+    }
+
+    @GetMapping("/all")
+    public List<Product> getAllProducts(){
+        return productService.getAllProducts();
     }
 
     @PostMapping("/add")
