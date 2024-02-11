@@ -29,7 +29,7 @@ export class HomeComponent {
   onAddToCart(product : Product) : void {
     this.cartService.addToCart({
       id: product.id,
-      product: product.image,
+      product: product.url,
       price: product.price,
       name: product.title,
       qty: 1,

@@ -14,7 +14,7 @@ export class ProductsBoxComponent {
     price: 45,
     category: 'Clothes',
     description: 'Description',
-    image: 'https://via.placeholder.com/150'
+    url: 'https://via.placeholder.com/150'
   }
   @Output() addToCart = new EventEmitter();
 

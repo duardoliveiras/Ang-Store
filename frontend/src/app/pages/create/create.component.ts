@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ImgbbService } from '../../services/imgbb.service';
 import { CategoriesService } from '../../services/categories.service';
+import { ProductService } from '../../services/product.service';
 
 
 
@@ -14,7 +15,10 @@ export class CreateComponent implements OnInit {
   form: FormGroup;
   categories: string[] = []; // This is an array of strings
 
-  constructor(private fb: FormBuilder, private readonly imgbbService : ImgbbService, private categoriesService: CategoriesService ){
+  constructor(private fb: FormBuilder, 
+      private readonly imgbbService : ImgbbService, 
+      private categoriesService: CategoriesService,
+      private productService: ProductService){
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       category: ['', [Validators.required]],
@@ -42,6 +46,21 @@ export class CreateComponent implements OnInit {
       const imgUrl = await this.imgbbService.upload(this.up);
       this.form.get('url')?.setValue(imgUrl);
     }
-    console.log(this.form.value);
+    //console.log(this.form.value);
+
+    const product : any = {
+      name: this.form.get('name')?.value,
+      category: this.form.get('category')?.value,
+      description: this.form.get('description')?.value,
+      price: this.form.get('price')?.value,
+      url: this.form.get('url')?.value
+    }
+    console.log(product);
+    this.productService.postProduct(product).subscribe((response) =>{
+        console.log(response);
+    });
+
   }
+
+
 }
