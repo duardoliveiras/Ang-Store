@@ -9,14 +9,7 @@ import { Product } from '../../../../models/product-box';
 export class ProductsBoxComponent {
   @Input() fullWidthMode = false;
   
-  product : Product | undefined = {
-    id: 2,
-    title: 'Jeans',
-    price: 45,
-    category: 'Clothes',
-    description: 'Description',
-    url: 'https://via.placeholder.com/150'
-  }
+  @Input() product : Product | undefined;
   
   @Output() addToCart = new EventEmitter();
 
