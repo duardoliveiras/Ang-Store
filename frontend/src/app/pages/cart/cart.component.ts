@@ -82,9 +82,7 @@ export class CartComponent implements OnInit{
       name: 'PS5',
       currency: 'usd',
       amount: 9999,
-      quantity: '1',
-      cancel: 'https://youtube.com',
-      success: 'https://google.com',
+      quantity: '1'
     }
     
     const stripe = await this.stripePromise;
