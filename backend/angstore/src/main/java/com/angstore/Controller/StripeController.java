@@ -53,7 +53,7 @@ public class StripeController {
     }
 
     private static void init(){
-        Stripe.apiKey = "pk_test_51OjP0cBGVQWFzAE7vEkLI84L6jclRDhW7DK17uicCxUpkCGj5WuwMasBLNBD4gpLqlXAXf299B9Sx5I7W4pZQXjx00V5mcarks";
+        Stripe.apiKey = "sk_test_51OjP0cBGVQWFzAE7E4npyiuQebO60GpRw98ZKvUuNi2F5e1p2ZVxQoA4fsT9g8G7oCskC5fasZdZ2iQFMp58xPlm00JCi4lB8m";
     }
 
 }

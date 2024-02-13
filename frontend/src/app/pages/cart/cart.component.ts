@@ -11,6 +11,7 @@ import { loadStripe } from '@stripe/stripe-js';
 })
 export class CartComponent implements OnInit{
 
+  stripePromise = loadStripe('pk_test_51OjP0cBGVQWFzAE7vEkLI84L6jclRDhW7DK17uicCxUpkCGj5WuwMasBLNBD4gpLqlXAXf299B9Sx5I7W4pZQXjx00V5mcarks'); 
   cart: Cart = {items: [
     {
       id: 1,
@@ -57,7 +58,9 @@ export class CartComponent implements OnInit{
     'action'
   ];
 
+
   constructor(private cartService: CartService, private httpClient: HttpClient) { }
+  
 
   getTotal(items : Array<CartItem>): number{
     return this.cartService.getTotal(items);
@@ -74,18 +77,25 @@ export class CartComponent implements OnInit{
   addQuantity(item : CartItem) : void { 
     this.cartService.addToCart(item);
   }
-  toCheckout() : void {
-    this.httpClient.post('http://localhost:8080/checkout', 
-    {
-      items: this.cart.items,
+  async toCheckout() : Promise<void> {
+    const payment = {
+      name: 'PS5',
+      currency: 'usd',
+      amount: 9999,
+      quantity: '1',
+      cancel: 'https://youtube.com',
+      success: 'https://google.com',
+    }
+    
+    const stripe = await this.stripePromise;
 
-    }).subscribe(async(response:any) => {
-      let stripe = await loadStripe('pk_test_51OjP0cBGVQWFzAE7vEkLI84L6jclRDhW7DK17uicCxUpkCGj5WuwMasBLNBD4gpLqlXAXf299B9Sx5I7W4pZQXjx00V5mcarks'); 
-      // Load stripe from the stripe.js library 
-      stripe?.redirectToCheckout({
-        sessionId: response.id,
-      })
-    });
+    this.httpClient
+      .post('http://localhost:8080/stripe/payment', payment)
+      .subscribe( (data: any) => {
+        stripe?.redirectToCheckout({
+          sessionId: data.id,
+        })
+      });
   }
 
 }
