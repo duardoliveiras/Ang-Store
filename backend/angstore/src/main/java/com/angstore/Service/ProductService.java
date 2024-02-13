@@ -24,9 +24,12 @@ public class ProductService {
     
     private final ProductRepository productRepository;
 
+    // method to add a product
     public void addProduct(Product product){
         productRepository.save(product);
     }
+
+    // method to get all products
     public List<Product> getAllProducts(String sort, int limit){
         List<Product> products = productRepository.findAll();
         // asc order is p1.getName().compareTo(p2.getName())
@@ -47,6 +50,11 @@ public class ProductService {
     // method to get all categories
     public Category[] getCat(){
         return ProductService.getAllCategories();
+    }
+
+    // method to get products by category
+    public List<Product> getProductsByCategory(String category){
+        return productRepository.findByCategory(category).orElse(null);
     }
  
 }

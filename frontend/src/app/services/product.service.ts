@@ -21,10 +21,11 @@ export class ProductService {
     return this.httpClient.post<any>(`${this.apiUrl}/product/add`, product);
 
   }
-
-  getAllProducts(sort='desc', limit='12') : Observable<Array<Product>>{
+  // ? is used to make the parameter optional
+  getAllProducts(sort='desc', limit='12', category?: string) : Observable<Array<Product>>{
     return this.httpClient.get<Array<Product>>(
-      `${this.apiUrl}/product/all?sort=${sort}&limit=${limit}`
+      `${this.apiUrl}/product${category ? '/category/' + category : '/all' 
+       }?sort=${sort}&limit=${limit}`
     );
   }
 

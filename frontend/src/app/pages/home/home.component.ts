@@ -34,7 +34,10 @@ export class HomeComponent  implements OnInit, OnDestroy{
   }
 
   getAllProducts() : void {
-    this.productsSubscription = this.productService.getAllProducts(this.sort, this.limit)
+    this.productsSubscription = this.productService.getAllProducts(
+        this.sort, 
+        this.limit,
+        this.category)
     .subscribe((_products) => {
       this.products = _products;
   });
@@ -56,7 +59,9 @@ export class HomeComponent  implements OnInit, OnDestroy{
   selectCategory(newCat : string): void {
     console.log('Selected category', newCat);
     this.category = newCat;
+    this.getAllProducts();
   }
+  
   onAddToCart(product : Product) : void {
     this.cartService.addToCart({
       id: product.id,
