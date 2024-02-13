@@ -41,9 +41,17 @@ export class HomeComponent  implements OnInit, OnDestroy{
   }
 
   columnsUpdate(colsNum : number): void {
-    console.log('Selected column', colsNum);
+    //console.log('Selected column', colsNum);
     this.cols = colsNum;
     this.rowHeight = ROW_HEIGHT[this.cols];
+  }
+  itemsUpdate(newLimit: number): void{
+    this.limit = newLimit.toString();
+    this.getAllProducts();
+  }
+  sortUpdate(newSort: string): void{
+    this.sort = newSort;
+    this.getAllProducts();
   }
   selectCategory(newCat : string): void {
     console.log('Selected category', newCat);

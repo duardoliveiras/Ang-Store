@@ -23,10 +23,10 @@ public class ProductService {
         List<Product> products = productRepository.findAll();
         // asc order is p1.getName().compareTo(p2.getName())
         // desc order is p2.getName().compareTo(p1.getName())
-        if(sort.equals("asc")){
+        if(sort.toLowerCase().equals("asc")){
             products.sort((p1, p2) -> p1.getName().toLowerCase().compareTo(p2.getName().toLowerCase()));
         }
-        else if(sort.equals("desc")){
+        else if(sort.toLowerCase().equals("desc")){
             products.sort((p1, p2) -> p2.getName().toLowerCase().compareTo(p1.getName().toLowerCase()));    
         }
         if(limit < products.size()){

@@ -8,17 +8,6 @@
                 <img src="{{element.product}}" alt="product" class="w-[100px] my-5"/>
             </td>
             <td mat-footer-cell *matFooterCellDef>
-                <div class="flex mx-auto">
-                <button mat-raised-button routerLink="/home" class="mr-2"> Continue Shopping
-                    <mat-icon> shopping_cart </mat-icon>
-                </button>
-                <button 
-                    (click)="clearCart()"
-                    mat-raised-button color="warn" class="float-right">
-                    <mat-icon> delete </mat-icon>
-                    Clear all
-                </button>
-                </div>
             </td>
         </ng-conteiner>
 
@@ -28,6 +17,17 @@
                 {{element.id}}
             </td>
             <td mat-footer-cell *matFooterCellDef>
+                <div class="flex mx-auto">
+                    <button mat-raised-button routerLink="/home" class="mr-2"> Continue Shopping
+                        <mat-icon> shopping_cart </mat-icon>
+                    </button>
+                    <button 
+                        (click)="clearCart()"
+                        mat-raised-button color="warn" class="float-right">
+                        <mat-icon> delete </mat-icon>
+                        Clear all
+                    </button>
+                    </div>
             </td>
         </ng-conteiner>
 
