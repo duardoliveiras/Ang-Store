@@ -7,9 +7,9 @@
                     [ngClass]="{'px-8 flex flex-col justify-between' : fullWidthMode}">
                 <div>
                     <h5> {{ product.category }} </h5>
-                    <p class="break-words truncate hover:whitespace-normal "> {{ product.name }} </p>
-                    <p class="break-words text-base mr-4" *ngIf="fullWidthMode">{{ product.description }}</p>
-                      
+                    <strong [ngClass]="{'truncate hover:whitespace-normal' : !fullWidthMode}" class="break-words  "> {{ product.name }} </strong>
+                    
+                    <p style="padding-top: 20px;"class="break-words text-base mr-4" *ngIf="fullWidthMode">{{ product.description }}</p>    
                 </div>
                 <div class="flex justify-between">
                     <button (click)="onAddToCart()">
