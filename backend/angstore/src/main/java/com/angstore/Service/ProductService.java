@@ -5,14 +5,22 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.angstore.Repository.ProductRepository;
+import com.angstore.Model.Category;
 import com.angstore.Model.Product;
 
 import lombok.AllArgsConstructor;
 
 
+
+
 @Service
 @AllArgsConstructor // Lombok annotation to create a constructor with all the required fields (final fields)
 public class ProductService {
+
+    // static method to get all categories from the enum
+    public static Category[] getAllCategories(){
+        return Category.values();
+    }
     
     private final ProductRepository productRepository;
 
@@ -35,4 +43,10 @@ public class ProductService {
         
         return products;
     }
+
+    // method to get all categories
+    public Category[] getCat(){
+        return ProductService.getAllCategories();
+    }
+ 
 }

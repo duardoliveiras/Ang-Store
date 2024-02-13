@@ -3,6 +3,7 @@ package com.angstore.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.angstore.Service.ProductService;
+import com.angstore.Model.Category;
 import com.angstore.Model.Product;
 
 import lombok.AllArgsConstructor;
@@ -39,6 +40,11 @@ public class ProductController {
     @PostMapping("/add")
     public void addProduct(@RequestBody Product product){
         productService.addProduct(product);
+    }
+
+    @GetMapping("/categories")
+    public Category[] getAllCategories(){
+        return productService.getCat();
     }
     
 }

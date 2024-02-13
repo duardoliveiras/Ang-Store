@@ -27,4 +27,10 @@ export class ProductService {
       `${this.apiUrl}/product/all?sort=${sort}&limit=${limit}`
     );
   }
+
+  getAllCategories() : Observable<Array<string>>{
+    return this.httpClient.get<Array<string>>(
+      `${this.apiUrl}/product/categories`,
+    );
+  }
 }
