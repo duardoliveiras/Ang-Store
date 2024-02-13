@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import lombok.Data;
 
-@Data
+@Data // This annotation is from Lombok and is used to generate the getters, setters, equals, and hashCode methods.
 public class Product {
     @Id
     private String id;
