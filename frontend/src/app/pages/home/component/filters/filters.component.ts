@@ -14,7 +14,6 @@ export class FiltersComponent  implements OnInit, OnDestroy{
   categoriesSubscription : Subscription | undefined;
 
   selectCategory(category : string) :void {
-    console.log('Selected category', category);
     this.selectNewCategory.emit(category);
   }
 

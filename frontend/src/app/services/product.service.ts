@@ -22,7 +22,7 @@ export class ProductService {
 
   }
   // ? is used to make the parameter optional
-  getAllProducts(sort='desc', limit='12', category?: string) : Observable<Array<Product>>{
+  getAllProducts(sort='asc', limit='12', category?: string) : Observable<Array<Product>>{
     return this.httpClient.get<Array<Product>>(
       `${this.apiUrl}/product${category ? '/category/' + category : '/all' 
        }?sort=${sort}&limit=${limit}`
