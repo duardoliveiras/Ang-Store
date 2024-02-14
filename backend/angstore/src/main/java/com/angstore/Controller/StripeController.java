@@ -32,24 +32,28 @@ public class StripeController {
 		String cancel = "http://localhost:4200";
 
         // Create a new Checkout Session for the order
-		SessionCreateParams params = SessionCreateParams.builder()
-			
-				.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
-				.setMode(SessionCreateParams.Mode.PAYMENT).setSuccessUrl(success)
-				.setCancelUrl(
-						cancel)
-				.addLineItem(
-						SessionCreateParams.LineItem.builder().setQuantity(payment.getQuantity())
-								.setPriceData(
-										SessionCreateParams.LineItem.PriceData.builder()
-												.setCurrency(currency).setUnitAmount(payment.getAmount())
-												.setProductData(SessionCreateParams.LineItem.PriceData.ProductData
-														.builder().setName(payment.getName())
-															.addImage(payment.getImage())
-															.build())
-											.build())
-							.build())
-				.build();
+		SessionCreateParams.Builder builder = SessionCreateParams.builder()
+				.setSuccessUrl(success)
+				.setCancelUrl(cancel)
+				.setMode(SessionCreateParams.Mode.PAYMENT)
+				.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
+
+		builder.addLineItem(
+			SessionCreateParams.LineItem.builder()
+				.setQuantity(payment.getQuantity())
+				.setPriceData(
+					SessionCreateParams.LineItem.PriceData.builder()
+						.setCurrency(currency).setUnitAmount(payment.getAmount())
+						.setProductData(SessionCreateParams.LineItem.PriceData.ProductData
+						.builder().setName(payment.getName())
+						.addImage(payment.getImage())
+						.build())
+					.build())
+				.build());
+
+				  
+		SessionCreateParams params = builder.build();
+				
         Session session = Session.create(params);
         Map<String, String> responseData = new HashMap<>();
         responseData.put("id", session.getId());
