@@ -27,21 +27,26 @@ public class StripeController {
     @PostMapping("/payment")
     public String paymentCheckoutPage(@RequestBody CheckoutPayment payment) throws StripeException{
         init();
+		String currency = "usd";
+		String success = "http://localhost:4200";
+		String cancel = "http://localhost:4200";
 
         // Create a new Checkout Session for the order
 		SessionCreateParams params = SessionCreateParams.builder()
 			
 				.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
-				.setMode(SessionCreateParams.Mode.PAYMENT).setSuccessUrl(payment.getSuccess())
+				.setMode(SessionCreateParams.Mode.PAYMENT).setSuccessUrl(success)
 				.setCancelUrl(
-						payment.getCancel())
+						cancel)
 				.addLineItem(
 						SessionCreateParams.LineItem.builder().setQuantity(payment.getQuantity())
 								.setPriceData(
 										SessionCreateParams.LineItem.PriceData.builder()
-												.setCurrency(payment.getCurrency()).setUnitAmount(payment.getAmount())
+												.setCurrency(currency).setUnitAmount(payment.getAmount())
 												.setProductData(SessionCreateParams.LineItem.PriceData.ProductData
-														.builder().setName(payment.getName()).build())
+														.builder().setName(payment.getName())
+															.addImage(payment.getImage())
+															.build())
 											.build())
 							.build())
 				.build();
