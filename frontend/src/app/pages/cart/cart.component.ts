@@ -13,30 +13,6 @@ export class CartComponent implements OnInit{
 
   stripePromise = loadStripe('pk_test_51OjP0cBGVQWFzAE7vEkLI84L6jclRDhW7DK17uicCxUpkCGj5WuwMasBLNBD4gpLqlXAXf299B9Sx5I7W4pZQXjx00V5mcarks'); 
   cart: Cart = {items: [
-    {
-      id: 1,
-      product: 'https://via.placeholder.com/150',
-      name: 'T-Shirt',
-      price: 150,
-      qty: 1,
-      total: 150
-    },
-    {
-      id: 2,
-      product: 'https://via.placeholder.com/150',
-      name: 'Jeans',
-      price: 45,
-      qty: 3,
-      total: 45
-    },
-    {
-      id: 3,
-      product: 'https://via.placeholder.com/150',
-      name: 'Hat',
-      price: 30,
-      qty: 1,
-      total: 45
-    }
   ]};
   dataSrc: Array<CartItem> = [];
 
