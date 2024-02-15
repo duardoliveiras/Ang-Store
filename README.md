@@ -1,6 +1,22 @@
 # Ang Store
 
+<div align="center">
+  <a href="https://github.com/duardoliveiras/ang-store">
+    <img src="imgs/ang-store.png" alt="Logo" width="150" height="150">
+    </a>
+
+
 This is a small store website that I developed as part of my study in Angular, Java, Spring Boot and MongoDB. The project aims to practice and enhance my web development skills.
+</div>
+
+## Technologies Used
+
+- **Java:** Primary programming language for developing the application logic.
+- **Spring Boot:** Framework used for building the backend of the web application.
+- **Angular:** Frontend framework used for developing the user interface.
+- **MongoDB:** NoSQL database used for storing and retrieving data, including links to product images.
+
+![ang-store](imgs/home.png)
 
 ## Features
 
@@ -11,13 +27,20 @@ This is a small store website that I developed as part of my study in Angular, J
     - Utilizes the ImgBB API to store and manage pictures associated with items.
     - MongoDB stores the links to these images, providing a seamless integration for displaying and managing product images.
 
+### Create a new product
 
-## Technologies Used
+![create](imgs/create.png)
 
-- **Java:** Primary programming language for developing the application logic.
-- **Spring Boot:** Framework used for building the backend of the web application.
-- **Angular:** Frontend framework used for developing the user interface.
-- **MongoDB:** NoSQL database used for storing and retrieving data, including links to product images.
+
+### Cart 
+
+![cart](imgs/cart.png)
+
+### Checkout 
+
+![checkout](imgs/stripe.png)
+
+
 
 ## How to Run the Project
 
