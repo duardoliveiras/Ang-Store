@@ -1,6 +1,7 @@
 package com.angstore.Controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ public class StripeController {
     private static Gson gson = new Gson();
 
     @PostMapping("/payment")
-    public String paymentCheckoutPage(@RequestBody CheckoutPayment payment) throws StripeException{
+    public String paymentCheckoutPage(@RequestBody List<CheckoutPayment> payments) throws StripeException{
         init();
 		String currency = "usd";
 		String success = "http://localhost:4200";
@@ -38,18 +39,21 @@ public class StripeController {
 				.setMode(SessionCreateParams.Mode.PAYMENT)
 				.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
 
-		builder.addLineItem(
-			SessionCreateParams.LineItem.builder()
-				.setQuantity(payment.getQuantity())
-				.setPriceData(
-					SessionCreateParams.LineItem.PriceData.builder()
-						.setCurrency(currency).setUnitAmount(payment.getAmount())
-						.setProductData(SessionCreateParams.LineItem.PriceData.ProductData
-						.builder().setName(payment.getName())
-						.addImage(payment.getImage())
+		for (CheckoutPayment p : payments) {
+			builder.addLineItem(
+				SessionCreateParams.LineItem.builder()
+					.setQuantity(p.getQuantity())
+					.setPriceData(
+						SessionCreateParams.LineItem.PriceData.builder()
+							.setCurrency(currency).setUnitAmount(p.getAmount())
+							.setProductData(SessionCreateParams.LineItem.PriceData.ProductData
+							.builder().setName(p.getName())
+							.addImage(p.getImage())
+							.build())
 						.build())
-					.build())
-				.build());
+					.build());
+		}
+
 
 				  
 		SessionCreateParams params = builder.build();
