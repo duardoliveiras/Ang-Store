@@ -19,4 +19,7 @@ public class ClientService {
     public List<Client> fetchAllClients(){
         return clientRepository.findAll();
     }
+    public void postClient(Client client){
+        clientRepository.insert(client);
+    }
 }

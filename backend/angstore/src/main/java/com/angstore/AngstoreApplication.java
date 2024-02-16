@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.angstore.Model.Address;
 import com.angstore.Model.Client;
@@ -25,8 +24,9 @@ public class AngstoreApplication {
 		SpringApplication.run(AngstoreApplication.class, args);
 	}
 
+	// This method is used to create a bean of type PasswordEncoder, which is used to encode passwords.
 	@Bean 
-	public PasswordEncoder passwordEncoder(){
+	public BCryptPasswordEncoder passwordEncoder(){
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder;
 	}

@@ -15,16 +15,21 @@ public class Client {
     @Id // This  is used to indicate that this field is the unique identifier for the document.
     private String id;
     private String name;
-    private Address address;
+    //private Address address;
     @Indexed(unique = true) // Is used to indicate that this field should be indexed in the database.
     private String email;
     private String password;
     private List<Product> cart;
     private BigDecimal totalSpent;
     
+    public Client(){
+        this.totalSpent = new BigDecimal(0);
+        this.cart = List.of();
+    }
+    
     public Client(String name, Address address, String email){
         this.name = name;
-        this.address = address;
+        //this.address = address;
         this.email = email;
         this.totalSpent = new BigDecimal(0);
         this.cart = List.of();
