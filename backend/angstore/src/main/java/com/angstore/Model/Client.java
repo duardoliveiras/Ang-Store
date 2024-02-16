@@ -18,6 +18,7 @@ public class Client {
     private Address address;
     @Indexed(unique = true) // Is used to indicate that this field should be indexed in the database.
     private String email;
+    private String password;
     private List<Product> cart;
     private BigDecimal totalSpent;
     

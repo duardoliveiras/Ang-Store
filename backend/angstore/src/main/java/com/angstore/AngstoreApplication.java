@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.angstore.Model.Address;
 import com.angstore.Model.Client;
@@ -21,6 +23,12 @@ public class AngstoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AngstoreApplication.class, args);
+	}
+
+	@Bean 
+	public PasswordEncoder passwordEncoder(){
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		return encoder;
 	}
 
 	@Bean // This annotation tells Spring Boot that this method should be used to configure the application context.
