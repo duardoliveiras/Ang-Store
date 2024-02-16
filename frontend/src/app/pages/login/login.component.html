@@ -1,1 +1,27 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col items-center
+    justify-center min-h-screen bg-gray-200">
+    <div class="p-5 bg-white rounded shadow-md w-1/3">
+        <div class="mb-5">
+            <label for="email" class="block mb-2 text-sm text-gray-600"> Email: </label>
+            <input formControlName="email" type="text" 
+                class="w-full px-3 py-2 text-gray-700 border rounded-lg 
+                focus:outline-none focus:shadow-outline"/>
+            <small *ngIf="form.get('email')?.errors" class="text-red-600"> Required field </small>
+        </div>
+        <div class="mb-5">
+            <label for="password" class="block mb-2 text-sm text-gray-600"> Password: </label>
+            <input formControlName="password" type="password" 
+                class="w-full px-3 py-2 text-gray-700 border rounded-lg 
+                focus:outline-none focus:shadow-outline"/>
+            <small *ngIf="form.get('password')?.errors" class="text-red-600"> Required field </small>
+        </div>
+        
+        <button type="submit" 
+            [disabled]="!form.valid" 
+            mat-raised-button color="primary"
+            class="w-full py-3 mt-10"> Send </button>
+    </div>
+</form>
+
+
+  
