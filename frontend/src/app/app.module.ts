@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http'; // To use the HttpClient service, we need to import the HttpClientModule module
 import { ProductService } from './services/product.service';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProductService } from './services/product.service';
     FiltersComponent,
     ProductsBoxComponent,
     CartComponent,
-    CreateComponent
+    CreateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

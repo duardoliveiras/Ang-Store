@@ -6,13 +6,22 @@
         <mat-icon>create</mat-icon>
     </button>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon
-        [matBadge] = "itemsQty"
-        [matBadgeHidden]="!itemsQty"
-        matBadgeColor="warn"
-        >shopping_cart</mat-icon>    
-    </button>
+    <div>
+        <button 
+        routerLink="login"
+        mat-icon-button> 
+            <mat-icon>login</mat-icon>
+        </button>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon
+            [matBadge] = "itemsQty"
+            [matBadgeHidden]="!itemsQty"
+            matBadgeColor="warn"
+            >shopping_cart</mat-icon>    
+        </button>
+    </div>
+
 
     <mat-menu #menu="matMenu">
         <div class="p-3 divide-y divide-solide">
