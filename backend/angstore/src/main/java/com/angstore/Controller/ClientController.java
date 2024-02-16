@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.angstore.Model.Client;
+import com.angstore.Model.LoginForm;
 import com.angstore.Service.ClientService;
 
 import lombok.AllArgsConstructor;
@@ -39,6 +40,15 @@ public class ClientController{
         client.setPassword(encoder.encode(client.getPassword()));
         clientService.postClient(client);
     }
+    @PostMapping("/login")
+    public String valideClient(@RequestBody LoginForm login){
+       boolean isValid = clientService.valideClient(login);
+       if(isValid){
+            return "Welcome";
+       }else{
+        return "Invalid";
+       }
+    }  
 
 
 

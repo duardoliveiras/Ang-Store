@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
-@Data
+@Data // This annotation is from Lombok and is used to generate getters and setters for the fields in this class.
 @Document // This annotation is from Spring Data MongoDB and is used to indicate that this class is a document in a MongoDB database.
 public class Client {
     @Id // This  is used to indicate that this field is the unique identifier for the document.
@@ -26,7 +26,7 @@ public class Client {
         this.totalSpent = new BigDecimal(0);
         this.cart = List.of();
     }
-    
+
     public Client(String name, Address address, String email){
         this.name = name;
         //this.address = address;
