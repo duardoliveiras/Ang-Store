@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,13 +29,13 @@ public class ClientService {
     public void postClient(Client client){
         clientRepository.insert(client);
     }
-    public boolean valideClient(LoginForm login){
+    public String valideClient(LoginForm login){
         Optional<Client> client = clientRepository.findByEmail(login.getEmail());
         if(client.isPresent()){
             if(encoder.matches(login.getPassword(), client.get().getPassword())){
-                return true;
+                return "Welcome";
             }
         }
-        return false;
+        return "Invalid";
     }
 }
