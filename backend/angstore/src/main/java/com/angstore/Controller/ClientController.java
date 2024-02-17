@@ -42,12 +42,11 @@ public class ClientController{
     }
     @PostMapping("/login")
     public String valideClient(@RequestBody LoginForm login){
-       boolean isValid = clientService.valideClient(login);
-       if(isValid){
-            return "Welcome";
-       }else{
-        return "Invalid";
+       String token = clientService.valideClient(login);
+       if(token == null){
+            return "Invalid credentials";
        }
+       return token;
     }  
 
 
