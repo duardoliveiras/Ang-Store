@@ -6,7 +6,7 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class ClientService {
 
 apiUrl = environment.apiUrl;
   constructor(private httpClient : HttpClient) { }
@@ -19,9 +19,9 @@ apiUrl = environment.apiUrl;
     })
     .pipe(map( (res: any) => {
       if(res && res.token){
-        localStorage.setItem('currentUser', JSON.stringify(res));
+        //localStorage.setItem('currentUser', JSON.stringify(res));
       }
-      console.log(res);
+      //console.log(res.token);
       return res;
     }));
   }
